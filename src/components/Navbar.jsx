@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoLogoAngular } from "react-icons/io";
 import { FcLike } from "react-icons/fc";
+import { CartContext } from "../context/CartProvider";
 
-const Navbar = ({ size, setShowModal }) => {
+const Navbar = ({ setShowModal }) => {
+  const { size } = useContext(CartContext);
   return (
     <div className="flex  justify-between items-center  px-5 md:px-[100px] shadow-xl h-24  sticky top-0 z-20  bg-white">
       <div className="flex items-center gap-1 ">

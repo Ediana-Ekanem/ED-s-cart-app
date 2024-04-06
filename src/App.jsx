@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./App.css";
 import Home from "./components/Home";
 // import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
 import Modal from "./components/Modal";
+import { CartContext } from "./context/CartProvider";
 
 function App() {
-  const [cart, setCart] = useState([]);
-  const [warning, setWarning] = useState(false);
+  const { warning, setWarning, cart, setCart } = useContext(CartContext);
+
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = (item) => {

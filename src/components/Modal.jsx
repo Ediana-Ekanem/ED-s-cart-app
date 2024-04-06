@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { MdClose } from "react-icons/md";
+import { CartContext } from "../context/CartProvider";
 
-const Modal = ({ cart, setCart, setShowModal, handleCount }) => {
+const Modal = ({ setShowModal, handleCount }) => {
+  const { cart, setCart } = useContext(CartContext);
   const [price, setPrice] = useState(0);
 
   const handlePrice = () => {
@@ -32,7 +34,7 @@ const Modal = ({ cart, setCart, setShowModal, handleCount }) => {
       onClick={() => setShowModal(false)}
     >
       <div
-        className="w-full max-w-[40%] bg-white shadow-xl rounded-xl py-5 px-5 fixed z-[999] overflow-y-auto max-h-[70vh]  "
+        className="w-full max-w-[46%] bg-white shadow-xl rounded-xl py-5 px-5 fixed z-[999] overflow-y-auto max-h-[70vh]  "
         onClick={handleModalClick}
       >
         <span className="flex justify-end me-5">
@@ -47,7 +49,7 @@ const Modal = ({ cart, setCart, setShowModal, handleCount }) => {
             key={item.id}
             className="flex items-center space-x-7 border-b  border-gray-300 mb-5 pb-5"
           >
-            <div className="w-40 h-20">
+            <div className="w-36 h-20 ">
               <img
                 src={item.img}
                 alt={item.id}
